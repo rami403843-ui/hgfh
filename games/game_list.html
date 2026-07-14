@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #1e1e2e; color: #eee; padding: 40px; }
+        h1 { color: #89b4fa; }
+        ul { list-style: square; }
+        li { margin: 10px 0; font-size: 18px; }
+        .finished { color:#a6e3a1; }
+    </style>
+</head>
+<body>
+    <h1>🎮 Каталог игр</h1>
+    <ul>
+        {% for game in games %}
+            <li>
+                <strong>{{ game.title }}</strong> — {{ game.genre }}, {{ game.release_year }}
+                {% if game.is_finished %}<span class="finished">пройдена</span>{% endif %}
+            </li>
+        {% empty %}
+            <li>Список игр пуст</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
